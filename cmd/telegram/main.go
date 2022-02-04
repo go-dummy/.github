@@ -13,8 +13,11 @@ func main() {
 
 	fmt.Println(os.Getenv("TELEGRAM_CHAT_ID"))
 
-	_, err := http.Get("https://api.telegram.org/bot" + os.Getenv("TELEGRAM_ACCESS_TOKEN") + "/sendMessage?chat_id=" + os.Getenv("TELEGRAM_CHAT_ID") + "&text=" + *text)
+	resp, err := http.Get("https://api.telegram.org/bot" + os.Getenv("TELEGRAM_ACCESS_TOKEN") + "/sendMessage?chat_id=" + os.Getenv("TELEGRAM_CHAT_ID") + "&text=" + *text)
 	if err != nil {
 		fmt.Println(err)
 	}
+	defer resp.Body.Close()
+
+	fmt.Println(resp.Status)
 }
