@@ -16,16 +16,16 @@ jobs:
         with:
           go-version: 1.17.6
 
-      - name: Lint
-        uses: golangci/golangci-lint-action@v2
-        with:
-          version: latest
-          args: --timeout 5m
-          skip-go-installation: true
-
       - name: Telegram
         env:
           TELEGRAM_ACCESS_TOKEN: ${{ secrets.TELEGRAM_ACCESS_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           go run ./cmd/telegram -text=user ${{ github.event.pull_request.user.login }} make PR
+
+      - name: Lint
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: latest
+          args: --timeout 5m
+          skip-go-installation: true
