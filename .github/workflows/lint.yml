@@ -18,7 +18,7 @@ jobs:
 
       - name: Send text to Telegram
         run: |
-          curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_ACCESS_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=user ${{ github.event.pull_request.user.login }} make PR"
+          curl https://api.telegram.org/bot"$secrets.TELEGRAM_ACCESS_TOKEN"/sendMessage?chat_id="$secrets.TELEGRAM_CHAT_ID"&text=user ${{ github.event.pull_request.user.login }} make PR
 
       - name: Lint
         uses: golangci/golangci-lint-action@v2
