@@ -1,3 +1,3 @@
-module github.com/neotoolkit/.github
+module github.com/neotoolkit/x
 
 go 1.17
