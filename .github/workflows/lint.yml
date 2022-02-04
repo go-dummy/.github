@@ -17,14 +17,8 @@ jobs:
           go-version: 1.17.6
 
       - name: Send text to Telegram
-        env:
-          TELEGRAM_ACCESS_TOKEN: ${{ secrets.TELEGRAM_ACCESS_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          go install github.com/neotoolkit/x/cmd/telegram@latest
-          echo "Send message"
-          telegram -text=user ${{ github.event.pull_request.user.login }} make PR
-          echo "OK"
+          curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_ACCESS_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=user ${{ github.event.pull_request.user.login }} make PR"
 
       - name: Lint
         uses: golangci/golangci-lint-action@v2
