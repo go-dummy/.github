@@ -21,9 +21,9 @@ jobs:
           TELEGRAM_ACCESS_TOKEN: ${{ secrets.TELEGRAM_ACCESS_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          go get github.com/neotoolkit/x/cmd/telegram
+          go install github.com/neotoolkit/x/cmd/telegram@latest
           echo "Send message"
-          go run github.com/neotoolkit/x/cmd/telegram -text=user ${{ github.event.pull_request.user.login }} make PR
+          telegram -text=user ${{ github.event.pull_request.user.login }} make PR
           echo "OK"
 
       - name: Lint
