@@ -22,12 +22,6 @@ jobs:
       - name: Go Tidy
         run: go mod tidy && git diff --exit-code
 
-      - name: List dependencies
-        run: go list -json -m all > go.list
-
-      - name: Run nancy
-        uses: sonatype-nexus-community/nancy-github-action@v1.0.2
-
       - name: Go Mod
         run: go mod download
 
