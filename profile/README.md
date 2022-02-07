@@ -1,5 +1,5 @@
 <p>
-  <img src="https://raw.githubusercontent.com/neotoolkit/.github/main/assets/logo.svg"
+  <img src="https://raw.githubusercontent.com/neotoolkit/.github/main/assets/social.png"
     alt="neotoolkit">
 </p>
 
