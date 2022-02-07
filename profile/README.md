@@ -1,8 +1,3 @@
-<p>
-  <img src="https://raw.githubusercontent.com/neotoolkit/.github/main/assets/social.png"
-    alt="neotoolkit">
-</p>
-
 <!--
 
 **Here are some ideas to get you started:**
