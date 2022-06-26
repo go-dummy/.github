@@ -21,3 +21,5 @@ jobs:
 
       - name: Run nancy
         uses: sonatype-nexus-community/nancy-github-action@v1.0.2
+        continue-on-error: true
+
